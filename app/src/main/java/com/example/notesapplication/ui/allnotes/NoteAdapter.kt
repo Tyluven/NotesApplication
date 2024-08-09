@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapplication.databinding.ItemNoteBinding
 import com.example.notesapplication.ui.uimodel.NoteUiModel
+import com.example.notesapplication.util.DateUtil
 
 class NoteAdapter : ListAdapter<NoteUiModel, NoteAdapter.NoteViewHolder>(NoteDiffCallback()) {
 
@@ -16,7 +17,7 @@ class NoteAdapter : ListAdapter<NoteUiModel, NoteAdapter.NoteViewHolder>(NoteDif
         fun bind(note: NoteUiModel) = with(binding) {
             tvNoteTitle.text = note.title
             tvNoteContent.text = note.content
-            tvLastUpdate.text = note.timestamp.toString()
+            tvLastUpdate.text = DateUtil.getDate(note.timestamp)
         }
     }
 
