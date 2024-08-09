@@ -4,25 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.notesapplication.databinding.FragmentNoteDetailBinding
+import com.example.notesapplication.ui.uimodel.NoteUiModel
+import com.example.notesapplication.viewmodel.NoteViewModel
 
 class NoteDetailFragment : Fragment() {
 
     companion object {
-        fun newInstance() = NoteDetailFragment()
+        private const val NOTE_ARG = "NOTE_ARG"
+        fun createBundle(note: NoteUiModel) = bundleOf(NOTE_ARG to note)
+        fun getBundle(bundle: Bundle) = bundle.getParcelable<NoteUiModel>(NOTE_ARG)
     }
 
     private var _binding: FragmentNoteDetailBinding? = null
-
     private val binding get() = _binding!!
 
-    private val viewModel: NoteDetailViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val viewModel: NoteViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +30,11 @@ class NoteDetailFragment : Fragment() {
     ): View {
         _binding = FragmentNoteDetailBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     override fun onDestroyView() {

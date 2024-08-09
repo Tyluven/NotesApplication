@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="sp20">20sp</dimen>
+    <dimen name="sp10">10sp</dimen>
+    <dimen name="sp8">8sp</dimen>
     <dimen name="dp50">50dp</dimen>
+    <dimen name="spacing24">24dp</dimen>
     <dimen name="spacing16">16dp</dimen>
     <dimen name="spacing12">12dp</dimen>
     <dimen name="spacing8">8dp</dimen>
+    <dimen name="spacing4">4dp</dimen>
 </resources>

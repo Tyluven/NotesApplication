@@ -19,11 +19,13 @@
             android:padding="@dimen/spacing16">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTitleNote"
+                android:id="@+id/tvNoteTitle"
+                style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/spacing8"
                 android:ellipsize="end"
+                android:includeFontPadding="false"
                 android:maxLines="1"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@+id/imgNote"
@@ -32,15 +34,33 @@
                 tools:text="Title Note" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvLastUpdate"
+                android:id="@+id/tvNoteContent"
+                style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing4"
                 android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@id/tvNoteTitle"
+                app:layout_constraintStart_toStartOf="@id/tvNoteTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvNoteTitle"
+                tools:text="There is note content, you can note anything at here, no limit characters and line." />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLastUpdate"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing4"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
                 android:maxLines="1"
                 android:textColor="@color/gray777575"
-                app:layout_constraintEnd_toEndOf="@id/tvTitleNote"
-                app:layout_constraintStart_toStartOf="@id/tvTitleNote"
-                app:layout_constraintTop_toBottomOf="@id/tvTitleNote"
+                app:layout_constraintEnd_toEndOf="@id/tvNoteContent"
+                app:layout_constraintStart_toStartOf="@id/tvNoteContent"
+                app:layout_constraintTop_toBottomOf="@id/tvNoteContent"
                 tools:text="last update 17:40 08/08/2024" />
 
             <androidx.appcompat.widget.AppCompatImageView
