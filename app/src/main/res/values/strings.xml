@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Notes Application</string>
     <string name="home_notes">Notes</string>
+    <string name="you_have_no_notes">You have no notes</string>
+    <string name="you_can_create_new_note_by_click">You can create new note by click + at the bottom of screen</string>
+    <string name="add_note">add note</string>
 </resources>
