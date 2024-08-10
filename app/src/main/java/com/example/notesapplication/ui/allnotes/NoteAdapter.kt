@@ -17,7 +17,7 @@ class NoteAdapter : ListAdapter<NoteUiModel, NoteAdapter.NoteViewHolder>(NoteDif
         fun bind(note: NoteUiModel) = with(binding) {
             tvNoteTitle.text = note.title
             tvNoteContent.text = note.content
-            tvLastUpdate.text = DateUtil.getDate(note.timestamp)
+            tvLastUpdate.text = DateUtil.getDate(note.lastUpdate)
         }
     }
 

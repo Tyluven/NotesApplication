@@ -14,11 +14,11 @@ interface NoteDao {
     fun getAllNotes(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(note: Note)
+    suspend fun insert(note: Note): Long
 
     @Delete
-    suspend fun delete(note: Note)
+    suspend fun delete(note: Note): Int
 
     @Update
-    suspend fun update(note: Note)
+    suspend fun update(note: Note): Int
 }

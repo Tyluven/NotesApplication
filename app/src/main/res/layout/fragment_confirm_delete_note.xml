@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_dialog"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing16">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/do_you_want_to_delete_this_note"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="@dimen/spacing8"
+            android:text="@string/if_you_delete_this_note_it_can_not_recovery_are_you_sure"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnConfirm"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="@dimen/spacing8"
+            android:background="@drawable/bg_rounded_btn"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/spacing8"
+            android:text="@string/yes"
+            android:textColor="@android:color/holo_red_light" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnCancel"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_rounded_btn"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/spacing8"
+            android:text="@string/no"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</layout>

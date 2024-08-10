@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.notesapplication.R
 import com.example.notesapplication.databinding.FragmentAllNotesBinding
 import com.example.notesapplication.extensions.navigateToScreen
-import com.example.notesapplication.helper.SpacingItemDecorator
+import com.example.notesapplication.ui.BaseFragment
 import com.example.notesapplication.ui.notedetail.NoteDetailFragment
 import com.example.notesapplication.ui.uimodel.NoteUiModel
 import com.example.notesapplication.viewmodel.NoteViewModel
 
-class AllNotesFragment : Fragment() {
+class AllNotesFragment : BaseFragment() {
 
     private var _binding: FragmentAllNotesBinding? = null
     private val binding get() = _binding!!
@@ -67,9 +66,6 @@ class AllNotesFragment : Fragment() {
 
     private fun initViews() = with(binding) {
         rvAllNotes.adapter = adapter
-        rvAllNotes.addItemDecoration(
-            SpacingItemDecorator(resources.getDimensionPixelOffset(R.dimen.spacing4))
-        )
     }
 
     override fun onDestroyView() {

@@ -10,8 +10,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing16"
-        android:layout_marginBottom="@dimen/spacing12">
+        android:layout_marginHorizontal="@dimen/spacing8"
+        android:layout_marginTop="@dimen/spacing8"
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

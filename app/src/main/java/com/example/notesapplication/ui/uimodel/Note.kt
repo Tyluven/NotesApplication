@@ -8,16 +8,16 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class NoteUiModel(
     val id: Int = 0,
-    val title: String,
-    val content: String,
-    val timestamp: Long = System.currentTimeMillis(),
+    val title: String = "",
+    val content: String = "",
+    val lastUpdate: Long = System.currentTimeMillis(),
     var isSelected: Boolean = false
 ) : Parcelable
 
 fun Note.mapToUiModel() = NoteUiModel(
-    id = id, title = title, content = content, timestamp = timestamp
+    id = id, title = title, content = content, lastUpdate = timestamp
 )
 
 fun NoteUiModel.mapToEntityModel() = Note(
-    id = id, title = title, content = content, timestamp = timestamp
+    id = id, title = title, content = content, timestamp = lastUpdate
 )
