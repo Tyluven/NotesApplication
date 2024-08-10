@@ -3,10 +3,16 @@
     <dimen name="sp20">20sp</dimen>
     <dimen name="sp10">10sp</dimen>
     <dimen name="sp8">8sp</dimen>
-    <dimen name="dp50">50dp</dimen>
     <dimen name="spacing24">24dp</dimen>
     <dimen name="spacing16">16dp</dimen>
     <dimen name="spacing12">12dp</dimen>
     <dimen name="spacing8">8dp</dimen>
     <dimen name="spacing4">4dp</dimen>
+    <dimen name="spacing10">10dp</dimen>
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp70">70dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="radius10">10dp</dimen>
+    <dimen name="radius6">6dp</dimen>
 </resources>
