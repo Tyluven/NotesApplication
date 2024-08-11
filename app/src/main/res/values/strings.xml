@@ -15,4 +15,5 @@
     <string name="no">No</string>
     <string name="do_you_want_to_discard_this_note">Do you want to discard this note?</string>
     <string name="if_you_discard_this_note_all_changes_will_not_be_saved">If you discard this note, All changes will not be saved</string>
+    <string name="some_thing_when_wrong">some thing when wrong</string>
 </resources>

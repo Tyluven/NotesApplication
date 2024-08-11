@@ -33,6 +33,7 @@ class AllNotesFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showLoading()
         initViews()
         initObservers()
         initListener()
@@ -51,8 +52,9 @@ class AllNotesFragment : BaseFragment() {
     }
 
     private fun initObservers() {
-        noteViewModel.allNotes.observe(viewLifecycleOwner) { notes ->
+        noteViewModel.allNotes?.observe(viewLifecycleOwner) { notes ->
             handleNoteState(notes)
+            hideLoading()
         }
     }
 

@@ -60,4 +60,6 @@ dependencies {
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
+    testImplementation(libs.mockk)
+    testImplementation(libs.androidx.core.testing)
 }
