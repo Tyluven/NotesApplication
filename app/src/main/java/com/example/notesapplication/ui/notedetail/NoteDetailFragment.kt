@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.core.view.isInvisible
@@ -58,12 +59,12 @@ class NoteDetailFragment : BaseFragment() {
     private fun initObservers() {
         viewModel.executeDataResult.observe(viewLifecycleOwner) {
             when (it) {
-                is ExecuteDbResult.Loading -> {
-                    showLoading()
-                }
-
                 is ExecuteDbResult.Error -> {
                     hideLoading()
+                    Toast.makeText(
+                        context,
+                        getString(R.string.some_thing_when_wrong), Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 is ExecuteDbResult.Success -> {

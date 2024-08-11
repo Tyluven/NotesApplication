@@ -15,33 +15,33 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository by lazy {
-        NoteRepository(
-            NoteDatabase.getDatabase(application).noteDao()
-        )
-    }
-    val allNotes: LiveData<List<NoteUiModel>> =
-        repository.allNotes.switchMap { notes -> MutableLiveData(notes.map { it.mapToUiModel() }) }
+
+    var repository: NoteRepository = NoteRepository(
+        NoteDatabase.getDatabase(application).noteDao()
+    )
+
+    var allNotes: LiveData<List<NoteUiModel>>? = null
 
     private val _executeDataResult = MutableLiveData<ExecuteDbResult>()
     val executeDataResult: LiveData<ExecuteDbResult> = _executeDataResult
 
+    init {
+        allNotes =
+            repository.allNotes.switchMap { notes -> MutableLiveData(notes.map { it.mapToUiModel() }) }
+    }
     fun insert(note: NoteUiModel) = viewModelScope.launch(Dispatchers.IO) {
-        _executeDataResult.postValue(ExecuteDbResult.Loading)
-        val row = repository.insert(note.mapToEntityModel())
-        handleDataResult(row >= 0)
+        val result = repository.insert(note.mapToEntityModel())
+        handleDataResult(result != -1L)
     }
 
     fun delete(note: NoteUiModel) = viewModelScope.launch(Dispatchers.IO) {
-        _executeDataResult.postValue(ExecuteDbResult.Loading)
-        val row = repository.delete(note.mapToEntityModel())
-        handleDataResult(row >= 0)
+        val result = repository.delete(note.mapToEntityModel())
+        handleDataResult(result == 1)
     }
 
     fun update(note: NoteUiModel) = viewModelScope.launch(Dispatchers.IO) {
-        _executeDataResult.postValue(ExecuteDbResult.Loading)
-        val row = repository.update(note.mapToEntityModel())
-        handleDataResult(row >= 0)
+        val result = repository.update(note.mapToEntityModel())
+        handleDataResult(result == 1)
     }
 
     private fun handleDataResult(isSuccess: Boolean) {
@@ -56,7 +56,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 }
 
 sealed class ExecuteDbResult {
-    data object Loading : ExecuteDbResult()
     data object Error : ExecuteDbResult()
     data object Success : ExecuteDbResult()
 
